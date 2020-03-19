@@ -1,0 +1,91 @@
+<div class="start">
+<div class="item">
+    <div>Imagem da receita</div>
+        <div>
+        <input 
+        type="URL" 
+        name="image" 
+        placeholder="http://"
+        value="{{selectedRecipe.image}}">
+        </div>
+    </div>
+<div class="item">
+    <div>Título da receita</div>
+        <div>
+        <input 
+        type="text" 
+        name="title" 
+        placeholder=""
+        value="{{selectedRecipe.title}}">
+        </div>
+    </div>
+<div class="item">
+    <div>Autor da receita</div>
+        <div>
+        <input 
+        type="text" 
+        name="author" 
+        placeholder=""
+        value="{{selectedRecipe.author}}">
+        </div>
+    </div>
+<div class="item">
+    <div>Ingredientes</div>
+        <div id="ingredients">
+        {%if selectedRecipe.ingredients == null %}
+        <div class="ingredient">
+        <input 
+        type="text" 
+        name="ingredients[]" 
+        placeholder=""
+        value="">
+        </div>
+        {%endif%}
+        {%for ingredient in selectedRecipe.ingredients%}
+        <div class="ingredient">
+        <input 
+        type="text" 
+        name="ingredients[]" 
+        placeholder=""
+        value="{{ingredient}}">
+        </div>
+        {%endfor%}
+        </div>
+        <a class="add-ingredient">Adicionar ingrediente</a>
+    </div>
+<div class="item">
+    <div>Modo de preparo</div>
+    <div id="preparations">
+        {%if selectedRecipe.preparation == null %}
+        <div class="preparation">
+        <input 
+        type="text" 
+        name="preparation[]" 
+        placeholder=""
+        value="">
+        </div>
+        {%endif%}
+        {%for preparation in selectedRecipe.preparation%}
+        <div class="preparation">
+        <input 
+        type="text" 
+        name="preparation[]" 
+        placeholder=""
+        value="{{preparation}}">
+        {%endfor%}
+        </div>
+        <a class="add-preparation">Adicionar novo passo</a>
+    </div>
+<div class="item">
+    <div>Informações adicionais</div>
+        <div>
+        <input 
+        type="text" 
+        name="information" 
+        placeholder=""
+        value="{{selectedRecipe.information}}">
+        </div>
+    </div>
+</div>
+</div>
+<script src="/fields.js"></script>
